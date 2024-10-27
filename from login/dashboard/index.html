@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="BILIARD.jpg" alt="Logo">
+                <h2>Dashboard</h2>
+            </div>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Pengguna</a></li>
+                <li><a href="#"><i class="fas fa-box"></i> Produk</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Pesanan</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Laporan</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <header>
+                <h1>SELAMAT DATANG DI DASHBOAR SAYA</h1>
+            </header>
+
+            <section class="cards">
+                <div class="card">
+                    <h3>User Aktif</h3>
+                    <p>120</p>
+                </div>
+                <div class="card">
+                    <h3>Produk Terjual</h3>
+                    <p>350</p>
+                </div>
+                <div class="card">
+                    <h3>Pendapatan</h3>
+                    <p>Rp 5.000.000</p>
+                </div>
+                <div class="card">
+                    <h3>Pengeluaran</h3>
+                    <p>Rp 2.000.000</p>
+                </div>
+            </section>
+
+            <section class="chart-section">
+                <h2>Grafik Pendapatan & Pengeluaran Bulanan</h2>
+                <canvas id="financeChart"></canvas>
+            </section>
+
+            <section class="table-section">
+                <h2>Daftar Pesanan Terakhir</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama Produk</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Produk A</td>
+                            <td>5</td>
+                            <td class="status-selesai">Selesai</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Produk B</td>
+                            <td>2</td>
+                            <td class="status-proses">Dalam Proses</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Produk C</td>
+                            <td>10</td>
+                            <td class="status-selesai">Selesai</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('financeChart').getContext('2d');
+        const financeChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'],
+                datasets: [
+                    {
+                        label: 'Pendapatan',
+                        data: [1200000, 1500000, 1800000, 2000000, 2200000, 2500000, 3000000],
+                        backgroundColor: 'rgba(0, 255, 0, 0.6)', // Hijau terang
+                    },
+                    {
+                        label: 'Pengeluaran',
+                        data: [800000, 900000, 700000, 600000, 950000, 1100000, 1300000],
+                        backgroundColor: 'rgba(255, 0, 0, 0.6)', // Merah terang
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#333'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e0e0e0'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: '#e0e0e0'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
