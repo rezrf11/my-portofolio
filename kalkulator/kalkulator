@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Modern</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .calculator {
+            background: #2f3640;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            width: 320px;
+        }
+
+        .calculator .display {
+            background: #353b48;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: right;
+            font-size: 2rem;
+            color: #f5f6fa;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 60px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .calculator .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .calculator button {
+            background: #3b3b98;
+            border: none;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            color: #f5f6fa;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .calculator button:hover {
+            background: #546de5;
+            transform: scale(1.05);
+        }
+
+        .calculator button.operator {
+            background: #f39c12;
+        }
+
+        .calculator button.operator:hover {
+            background: #f5c473;
+        }
+
+        .calculator button.equal {
+            background: #16a085;
+            grid-column: span 2;
+        }
+
+        .calculator button.equal:hover {
+            background: #48dbfb;
+        }
+
+        .calculator button.clear {
+            background: #e74c3c;
+            grid-column: span 2;
+        }
+
+        .calculator button.clear:hover {
+            background: #ff7675;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="display" disabled>
+        <div class="buttons">
+            <button onclick="clearDisplay()" class="clear">C</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="appendValue('%')" class="operator">%</button>
+            <button onclick="appendValue('/')" class="operator">/</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('*')" class="operator">*</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('-')" class="operator">-</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('+')" class="operator">+</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculateResult()" class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function appendValue(value) {
+            if (display.value === 'Error') {
+                display.value = '';
+            }
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function deleteLast() {
+            if (display.value === 'Error') {
+                display.value = '';
+            } else {
+                display.value = display.value.slice(0, -1);
+            }
+        }
+
+        function calculateResult() {
+            try {
+                if (display.value.trim() === '') {
+                    display.value = '';
+                } else {
+                    display.value = eval(display.value);
+                }
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
