@@ -1134,6 +1134,32 @@ strong {
   }
 }
 
+.maps-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.maps-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.map-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
 @media screen and (max-width: 575px) {
   .navbar .container {
     margin-right: 12px;
