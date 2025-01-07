@@ -1132,8 +1132,40 @@ strong {
     border-bottom: 1px solid var(--border-color);
     border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
   }
+
+  .maps-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #f9f9f9;
 }
 
+.maps-section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.maps-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.map-container {
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 16 / 9; /* Memastikan rasio layar tetap */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
 .maps-section {
     padding: 50px 0;
     text-align: center;
@@ -1141,24 +1173,33 @@ strong {
 }
 
 .maps-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.maps-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
 }
 
 .map-container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 16 / 9; /* Memastikan rasio layar tetap */
 }
 
 .map-container iframe {
     width: 100%;
-    height: 450px;
+    height: 100%;
     border: none;
 }
+
 
 @media screen and (max-width: 575px) {
   .navbar .container {
